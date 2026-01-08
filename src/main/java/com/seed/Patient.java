@@ -1,0 +1,16 @@
+package com.seed;
+
+import org.hibernate.SessionFactory;
+import org.hibernate.cfg.Configuration;
+
+public class Patient {
+
+	public static void main(String[] args) {
+		
+		SessionFactory factory = new Configuration().configure().buildSessionFactory();
+		 System.out.println(factory);
+		 System.out.println(factory.isOpen());
+
+	}
+
+}
