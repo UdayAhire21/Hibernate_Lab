@@ -18,8 +18,6 @@
 		<property name="hibernate.hbm2ddl.auto">create</property>
 		<!-- resource xml -->
        <!-- <mapping class="com.seed.Student" /> --> 
-       <mapping class="com.seed.Student"/>
-       <mapping class="com.seed.Address"/>
        <mapping class="com.map.Question"/>
        <mapping class="com.map.Answer"/>
 	</session-factory>

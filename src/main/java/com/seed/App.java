@@ -68,7 +68,6 @@ public class App
 		 * 
 		 * session3.save(cerfi); tx3.commit(); session3.close();
 		 */
-        
         factory.close();
         System.out.println(factory);
         System.out.println(factory.isClosed());
