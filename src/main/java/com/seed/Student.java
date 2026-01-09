@@ -4,6 +4,8 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 
+import org.hibernate.annotations.ColumnDefault;
+
 
 @Entity
 
@@ -14,6 +16,22 @@ public class Student {
 	private String name;
 	@Column(name="City", length=9)
 	private String city;
+	@Column(name="Certification", length=9)
+	private Certification cerfi;
+	
+	
+	public Student(int sid, String name, String city) {
+		super();
+		this.sid = sid;
+		this.name = name;
+		this.city = city;
+	}
+	public Certification getCerfi() {
+		return cerfi;
+	}
+	public void setCerfi(Certification cerfi) {
+		this.cerfi = cerfi;
+	}
 	public int getSid() {
 		return sid;
 	}
@@ -34,15 +52,9 @@ public class Student {
 	}
 	public Student() {
 		super();
-		// TODO Auto-generated constructor stub
+		// TODO Auto-generated constructor stub 
 	}
-	public Student(int sid, String name, String city) {
-		super();
-		this.sid = sid;
-		this.name = name;
-		this.city = city;
-	}
-	@Override
+	@Override   
 	public String toString() {
 		// TODO Auto-generated method stub
 		return "ID :"+sid+" "+"Name :"+name+" "+"City :"+city;

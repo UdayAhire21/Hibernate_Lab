@@ -23,8 +23,23 @@ public class App
         st.setSid(1);
         st.setName("vidhi");
         st.setCity("Malegaon");
+        
+        Certification cerfi = new Certification();
+        cerfi.setCourse("AI-ML");
+        cerfi.setDuration("30 days");
+        st.setCerfi(cerfi);
+        
+        Student st2 = new Student();
+        st2.setSid(2);
+        st2.setName("uday");
+        st2.setCity("Pune");
+        st2.setCerfi(cerfi);
         System.out.println(st);
+        System.out.println(st2);
+        
+        
         session1.save(st);
+        session1.save(st2);
         tx1.commit();
         session1.close();
         
@@ -46,6 +61,13 @@ public class App
         session2.save(ad);
         tx2.commit();
         session2.close();
+        
+		/*
+		 * Session session3 = factory.openSession(); Transaction tx3 =
+		 * session3.beginTransaction();
+		 * 
+		 * session3.save(cerfi); tx3.commit(); session3.close();
+		 */
         
         factory.close();
         System.out.println(factory);
