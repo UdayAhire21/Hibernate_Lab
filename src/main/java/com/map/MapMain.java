@@ -17,19 +17,19 @@ public class MapMain {
 		q1.setQuestionid(1);
 		q1.setQuestion("what is java?");
 		
-		session.save(q1);
+		//session.save(q1);
 		
 		Question q2 = new Question();
 		q2.setQuestionid(2);
 		q2.setQuestion("what is inheritance?");
 		
-		session.save(q2); 
+		//session.save(q2); 
 		
 		Question q3 = new Question();
 		q3.setQuestionid(3);
 		q3.setQuestion("what is containment?");
 		
-		session.save(q3);
+		//session.save(q3);
 		
 		Answer a1 = new Answer();
 		a1.setAnswer("it is programing language.");
