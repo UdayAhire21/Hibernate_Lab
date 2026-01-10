@@ -4,6 +4,7 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
 
 
 @Entity
@@ -15,6 +16,15 @@ public class Answer {
 	@Column (name="answer_id", length=5)
 	private int answerid;
 	private String answer;
+	@OneToOne(mappedBy = "answerid")
+	private Question questionid;
+	
+	public Question getQuestionid() {
+		return questionid;
+	}
+	public void setQuestionid(Question questionid) {
+		this.questionid = questionid;
+	}
 	public int getAnswerid() {
 		return answerid;
 	}

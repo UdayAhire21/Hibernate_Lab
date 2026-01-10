@@ -1,5 +1,6 @@
 package com.map;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -9,14 +10,14 @@ import javax.persistence.OneToOne;
 
 @Entity
 public class Question {
-	@Id
-	@GeneratedValue
-	@JoinColumn (name="answer_id")
-	private int questionid;
-	private String question;
-	@OneToOne
-	@JoinColumn(name="answer_id")
-	private Answer answerid;
+    @Id
+    @GeneratedValue
+    private int questionid;
+    private String question;
+
+    @OneToOne(cascade = CascadeType.ALL) // Cascade makes saving easier
+    @JoinColumn(name="answer_id") // The actual column in the Question table
+    private Answer answerid;
 
 	public Answer getAnswerid() {
 		return answerid;
