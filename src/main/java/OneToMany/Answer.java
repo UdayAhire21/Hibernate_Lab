@@ -1,9 +1,11 @@
 package OneToMany;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 
 
@@ -16,7 +18,8 @@ public class Answer {
 	@Column (name="answer_id", length=5)
 	private int answerid;
 	private String answer;
-	@OneToOne(mappedBy = "answerid")
+	
+	@ManyToOne(cascade = CascadeType.ALL)
 	private Question questionid;
 	
 	public Question getQuestionid() {

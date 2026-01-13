@@ -1,10 +1,13 @@
 package OneToMany;
 
+import java.util.List;
+
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 
 
@@ -14,17 +17,23 @@ public class Question {
     @GeneratedValue
     private int questionid;
     private String question;
+    
+    @OneToMany(mappedBy = "questionid", cascade = CascadeType.ALL)
+    private List<Answer> answer; 
 
-    @OneToOne(cascade = CascadeType.ALL) // Cascade makes saving easier
-    @JoinColumn(name="answer_id") // The actual column in the Question table
-    private Answer answerid;
-
-	public Answer getAnswerid() {
-		return answerid;
+	public Question(int questionid, String question, List<Answer> answer) {
+		super();
+		this.questionid = questionid;
+		this.question = question;
+		this.answer = answer;
 	}
 
-	public void setAnswerid(Answer answerid) {
-		this.answerid = answerid;
+	public List<Answer> getAnswer() {
+		return answer;
+	}
+
+	public void setAnswer(List<Answer> answer) {
+		this.answer = answer;
 	}
 
 	public int getQuestionid() { 
@@ -47,13 +56,5 @@ public class Question {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-
-	public Question(int questionid, String question) {
-		super();
-		this.questionid = questionid;
-		this.question = question;
-	}
-
-	
 
 }
