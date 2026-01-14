@@ -40,8 +40,13 @@ public class MapMain {
 	    session.save(q1);
 	    
 	    tx.commit();
-	    
 	    session.close();
+	    
+	    //fetching the data
+	    Question question = (Question)session.get(Question.class, 1);
+	    System.out.println(question.getQuestion());
+	    System.out.println(question.getAnswer().getClass());
+	    
 	    factory.close();
 	    System.out.println("Success!");
 	}
